@@ -1,0 +1,25 @@
+# Python
+.venv/
+venv/
+__pycache__/
+*.py[cod]
+
+# Git
+.git/
+.github/
+
+# Docs & meta
+README.md
+PLAN.md
+Шаг*.md
+черновики/
+
+# Env & secrets (секретов не должно быть в образе)
+.env
+.env.*
+!.env.example
+
+# Infra files not needed inside the image
+Dockerfile
+.dockerignore
+docker-compose.yml
