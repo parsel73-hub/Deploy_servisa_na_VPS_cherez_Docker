@@ -1,0 +1,22 @@
+services:
+  app:
+    build:
+      context: ..                      # контекст = корень проекта (нужен для COPY app/...)
+      dockerfile: infra/Dockerfile     # Dockerfile лежит в infra/
+    image: number-fact-api:latest
+    container_name: number-fact-api
+    restart: unless-stopped            # автоматический запуск (требование задания)
+    ports:
+      - "${HOST_PORT:-8080}:8000"      # проброс портов (хост:контейнер)
+    environment:
+      - APP_NAME=${APP_NAME:-number-fact-api}
+      - LOG_LEVEL=${LOG_LEVEL:-info}
+    env_file:
+      - path: .env                     # реальные значения секретов (не в git)
+        required: false                # без .env тоже стартует (значения по умолчанию)
+    healthcheck:
+      test: ["CMD", "python", "-c", "import urllib.request; urllib.request.urlopen('http://localhost:8000/health')"]
+      interval: 30s
+      timeout: 5s
+      retries: 3
+      start_period: 10s
