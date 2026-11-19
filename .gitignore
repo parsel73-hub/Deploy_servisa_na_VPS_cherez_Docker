@@ -16,6 +16,14 @@ __pycache__/
 
 # Plan file
 PLAN.md
+
+# Step files (local documentation)
+Шаг*.md
+
+# Environment variables (secrets)
+.env
+infra/.env
+
 Шаг1.md
 Шаг2.md
 Шаг3.md
