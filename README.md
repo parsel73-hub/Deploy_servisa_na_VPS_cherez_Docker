@@ -136,9 +136,9 @@ curl http://localhost:8080/health
 Или открой в браузере:
 
 ```
-http://<IP_СЕРВЕРА>:8080/health
-http://<IP_СЕРВЕРА>:8080/api/fact
-http://<IP_СЕРВЕРА>:8080/api/random?min=1&max=100
+http://<IP_СЕРВЕРА>:80/health
+http://<IP_СЕРВЕРА>:80/api/fact
+http://<IP_СЕРВЕРА>:80/api/random?min=1&max=100
 ```
 
 ### 5. Управление сервисом
